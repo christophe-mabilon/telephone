@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+{% form_theme formulaireTelephone 'bootstrap_5_layout.html.twig' %}
+{% block title %}
+    {% if creation %}
+        Créer un nouveau téléphone
+    {% else %}
+        Modifier un téléphone
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    {% if creation %}
+        <h1 class="text-center text-warning">Créer un nouveau téléphone</h1>
+    {% else %}
+        <h1 class="text-center text-warning">Modifier un téléphone</h1>
+    {% endif %}
+<div class="container">
+    {{ form_start(formulaireTelephone) }}
+    {{ form_row(formulaireTelephone.modelName, {'attr': {'placeholder': 'Modele du téléphone'}})  }}
+    {{ form_row(formulaireTelephone.constructeur, {'attr': {'placeholder': 'Constructeur du téléphone'}})  }}
+    {{ form_row(formulaireTelephone.image, {'attr': {'placeholder': 'Image'}})  }}
+    {{ form_row(formulaireTelephone.price, {'attr': {'placeholder': 'Prix'}})  }}
+    {{ form_row(formulaireTelephone.description, {'attr': {'placeholder': 'Déscription'}})  }}
+    {{ form_row(formulaireTelephone.stockage, {'attr': {'placeholder': 'Stockage'}})  }}
+    {% if creation %}
+        <button type="submit" class="btn btn-success">Envoyer</button>
+    {% else %}
+        <button type="submit" class="btn btn-warning rounded">Editer</button>
+    {% endif %}
+
+    {{ form_end(formulaireTelephone) }}
+
+    </div>
+
+{% endblock %}

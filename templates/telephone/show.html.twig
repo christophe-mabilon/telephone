@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ telephone.modelName }}
+{% endblock %}
+
+{% block body %}
+<section class="container-fluid text-dark row justify-content-center">
+
+<div class="col-4 card my-1 rounded py-2">
+    <div class="text-center">
+    <img src="{{ asset('/uploads/images/telephones/') }}{{telephone.image}}" class="card-img-top rounded" alt="{{ telephone.modelName }}" style='width:14rem;'">
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Modele : {{ telephone.modelName }}</h5>
+        <p class="card-text"><small>Capacitée de stockage : </small>{{ telephone.stockage }} <small>Go</small></p>
+        <p class="card-text"><small>Déscription : </small>{{ telephone.description }}</p>
+        <p class="card-text"><small>Prix : </small><strong>{{ telephone.price }}€</strong></p>
+        <div class="d-flex justify-content-around">
+            <a href="{{ path('telephone') }}" class="text-primary fw-bolder text-decoration-none">Retour aux téléphones</a>
+            <a href="{{ path('telephone_edit',{id: telephone.id}) }}" class="fw-bolder text-warning text-decoration-none">Modifier</a>
+            <a href="{{ path('telephone_delete',{id: telephone.id}) }}" class="text-danger fw-bolder text-decoration-none">Supprimer</a></div>
+    </div>
+</div>
+</section>
+{% endblock %}

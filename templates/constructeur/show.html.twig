@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}constructeurs : { constructeur.name }}{% endblock %}
+
+{% block body %}
+    <section class="container-fluid row text-dark justify-content-around">
+            <div class="col-3 card mx-3 my-1 py-2 rounded">
+                <img src="{{ asset('/uploads/images/constructeurs/') }}{{constructeur.imageLogo}}" class="card-img-top rounded" alt="{{ constructeur.name }}" style="height:12rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ constructeur.name }}</h5>
+                    <p class="card-text"><small>Origine : </small>{{ constructeur.origin }}</p>
+                    <p class="card-text"><small>Déscription : </small>{{ constructeur.description }}</p>
+                    <p class="card-text"><small>Adresse : </small><strong>{{ constructeur.adress }}</strong></p>
+                    <div class="d-flex justify-content-around">
+                        <a href="{{ path('constructeur_show',{id: constructeur.id}) }}" class="text-primary fw-bolder text-decoration-none">Voir</a>
+                        <a href="{{ path('constructeur_edit',{id: constructeur.id}) }}" class="text- fw-bolder text-warning text-decoration-none">Modifier</a>
+                        <a href="{{ path('constructeur_delete',{id: constructeur.id}) }}" class="text-danger fw-bolder text-decoration-none">Supprimer</a></div>
+
+                </div>
+            </div>
+
+    </section>
+{% endblock %}

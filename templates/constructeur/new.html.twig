@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+{% form_theme formulaireConstructeur 'bootstrap_5_layout.html.twig' %}
+
+{% block title %}
+    {% if creation %}
+        Créer un nouveau constructeur
+    {% else %}
+        Modifier un constructeur
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    {% if creation %}
+        <h1 class="text-center text-warning">Créer un nouveau constructeur</h1>
+    {% else %}
+        <h1 class="text-center text-warning">Modifier un  constructeur</h1>
+    {% endif %}
+    <div class="container">
+        {{ form_start(formulaireConstructeur) }}
+        {{ form_row(formulaireConstructeur.name, {'attr': {'placeholder': 'Nom du constructeur'}}) }}
+        {{ form_row(formulaireConstructeur.imageLogo, {'attr': {'placeholder': 'Logo du constructeur'}}) }}
+        {{ form_row(formulaireConstructeur.origin, {'attr': {'placeholder': "Pays d'origine du constructeur"}}) }}
+        {{ form_row(formulaireConstructeur.description, {'attr': {'placeholder': 'Déscription'}}) }}
+        {{ form_row(formulaireConstructeur.adress, {'attr': {'placeholder': 'Adresse'}}) }}
+        {% if creation %}
+            <button type="submit" class="btn btn-success rounded">Envoyer</button>
+        {% else %}
+            <button type="submit" class="btn btn-warning text-dark rounded">Editer</button>
+        {% endif %}
+
+        {{ form_end(formulaireConstructeur) }}
+
+    </div>
+
+{% endblock %}
