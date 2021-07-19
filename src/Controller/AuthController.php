@@ -36,4 +36,23 @@ class AuthController extends AbstractController
         //return $this->redirectToRoute('telephone');
 
     }
+
+    /**
+     *
+     * @Route ("/login", name="login")
+     */
+    public function login()
+    {
+    return $this->render('auth/login.html.twig');
+    }
+
+    /**
+     *
+     * @Route ("/logout", name="logout")
+     *
+     */
+    public function logout()
+    {
+
+    }
 }

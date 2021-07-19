@@ -23,7 +23,7 @@ class Telephone
 
     /**
      * @ORM\Column(type="string", length=255)
-     * Assert\length(min=4 ,minMessage="ce nom de modèle est trop court")
+     * Assert\Length(min=4 ,minMessage="ce nom de modèle est trop court")
      */
     private $modelName;
 
@@ -58,6 +58,12 @@ class Telephone
      * @ORM\ManyToOne(targetEntity=Constructeur::class, inversedBy="telephones")
      */
     private $constructeur;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="telephones")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
 
     public function getId(): ?int
     {
@@ -144,6 +150,18 @@ class Telephone
     public function setConstructeur(?Constructeur $constructeur): self
     {
         $this->constructeur = $constructeur;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

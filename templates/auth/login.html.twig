@@ -3,11 +3,12 @@
 {% block title %}Enregistrement{% endblock %}
 
 {% block body %}
-    <h1>Enregistrement</h1>
-    <form action="" method="POST">
-    <div class="form-group"><input type="text"></div>
-        <div class="form-group"><input type="password"></div>
-        <div class="form-group"><input type="submit" class="btn btn-success"></div>
+    <div class="container-fluid d-block">
+    <h1 class="text-warning text-center">CONNEXION</h1>
+    <form clas="form-group" action="" method="POST">
+    <div class="mb-3"><input name="_username" class="form-group" type="text"></div>
+        <div class="mb-3"><input name="_password" class="form-group" type="password"></div>
+        <div class="mb-3"><input name="" type="submit" class="form-group" class="btn btn-success"></div>
 
     </form>
 {% endblock %}

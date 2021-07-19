@@ -53,13 +53,20 @@
 
             </ul>
             <div class="d-flex">
+                {% if app.user %}
+                    <p>bonjour {{ app.user.username}} tu est connecté</p>
+                {% endif %}
                 <div class="col-auto me-2">
-                    <a  href="{{ path("register") }}"class="btn btn-info rounded">Inscription</a>
+                    <a  href="{{ path("register") }}" class="btn btn-info rounded">Inscription</a>
                 </div>
                 <div class="col-auto">
-                    <a  href="" class="btn btn-success rounded">Connexion</a>
+                    {% if app.user %}
+                        <a  href="{{ path("logout") }}" class="btn btn-danger rounded">Déconnexion</a>
+                    {% else %}
+                        <a  href="{{ path("login") }}" class="btn btn-success rounded">Connexion</a>
+                    {% endif %}
                 </div>
-        </div>
+            </div>
 
         </div>
     </div>

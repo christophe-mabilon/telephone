@@ -4,7 +4,7 @@ namespace App\Controller;
 
 
 
-
+use App\Entity\User;
 use App\Entity\Constructeur;
 use App\Entity\Telephone;
 use App\Form\TelephoneType;
@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\TelephoneRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class TelephoneController extends AbstractController
 {
@@ -51,12 +52,13 @@ class TelephoneController extends AbstractController
      * @Route("/telephone/edit/{id}",name="telephone_edit")
      *
      */
-    public function create(Request $req, EntityManagerInterface $manager, Telephone $telephone = null): Response
+    public function create(Request $req, EntityManagerInterface $manager, UserInterface  $user,Telephone $telephone = null): Response
     {
         $modeCreation = false;
         if (!$telephone) {
             $telephone = new Telephone();
             $telephone->setCreatedDate(new \DateTime());
+            $telephone->setUser($user) ;
             $modeCreation = true;
         }
         $formulaire = $this->createForm(TelephoneType::class, $telephone);

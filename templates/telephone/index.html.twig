@@ -12,6 +12,7 @@
                 <p class="card-text"><small>Capacitée de stockage : </small>{{ telephone.stockage }} <small>Go</small></p>
                 <p class="card-text"><small>Déscription : </small>{{ telephone.description }}</p>
                 <p class="card-text"><small>Prix : </small><strong>{{ telephone.price }}€</strong></p>
+                <p class="card-text"><small>Téléphone crée par : </small>{{ telephone.user.username }}</p>
                 <div class="d-flex justify-content-around">
                     <a href="{{ path('telephone_show',{id: telephone.id}) }}" class="text-primary fw-bolder text-decoration-none">Voir</a>
                 <a href="{{ path('telephone_edit',{id: telephone.id}) }}" class="text- fw-bolder text-warning text-decoration-none">Modifier</a>
