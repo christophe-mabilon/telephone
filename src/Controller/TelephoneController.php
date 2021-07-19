@@ -58,7 +58,7 @@ class TelephoneController extends AbstractController
         if (!$telephone) {
             $telephone = new Telephone();
             $telephone->setCreatedDate(new \DateTime());
-            $telephone->setUser($user) ;
+            $telephone->setUser($user);
             $modeCreation = true;
         }
         if($user !== $telephone->getUser() ){

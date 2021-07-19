@@ -42,15 +42,15 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="{{ path('constructeur') }}">Constructeurs</a>
                 </li>
+                {% if app.user%}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path("telephone_create") }}">Add phone</a>
 
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path("constructeur_create") }}">Add constructeur</a>
-
                 </li>
-
+                {% endif %}
             </ul>
             <div class="d-flex align-items-center my-auto">
                 {% if app.user %}
