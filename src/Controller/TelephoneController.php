@@ -61,6 +61,9 @@ class TelephoneController extends AbstractController
             $telephone->setUser($user) ;
             $modeCreation = true;
         }
+        if($user !== $telephone->getUser() ){
+            return $this->redirectToRoute('telephone');
+        }
         $formulaire = $this->createForm(TelephoneType::class, $telephone);
         $formulaire->handleRequest($req);
         if ($formulaire->isSubmitted() && $formulaire->isValid()) {

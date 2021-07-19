@@ -15,9 +15,13 @@
                 <p class="card-text"><small>Téléphone crée par : </small>{{ telephone.user.username }}</p>
                 <div class="d-flex justify-content-around">
                     <a href="{{ path('telephone_show',{id: telephone.id}) }}" class="text-primary fw-bolder text-decoration-none">Voir</a>
-                <a href="{{ path('telephone_edit',{id: telephone.id}) }}" class="text- fw-bolder text-warning text-decoration-none">Modifier</a>
-                <a href="{{ path('telephone_delete',{id: telephone.id}) }}" class="text-danger fw-bolder text-decoration-none">Supprimer</a></div>
-
+                    {% if app.user%}
+                    {% if app.user.username == telephone.user.username %}
+                    <a href="{{ path('telephone_edit',{id: telephone.id}) }}" class="text- fw-bolder text-warning text-decoration-none">Modifier</a>
+                <a href="{{ path('telephone_delete',{id: telephone.id}) }}" class="text-danger fw-bolder text-decoration-none">Supprimer</a>
+                {% endif %}
+                {% endif %}
+                </div>
             </div>
         </div>
     {% endfor %}

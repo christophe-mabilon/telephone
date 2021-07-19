@@ -52,18 +52,17 @@
                 </li>
 
             </ul>
-            <div class="d-flex">
+            <div class="d-flex align-items-center my-auto">
                 {% if app.user %}
-                    <p>bonjour {{ app.user.username}} tu est connecté</p>
+                    <small class="my-auto pe-5">bonjour {{ app.user.username}} tu est connecté</small>
                 {% endif %}
-                <div class="col-auto me-2">
-                    <a  href="{{ path("register") }}" class="btn btn-info rounded">Inscription</a>
-                </div>
+
                 <div class="col-auto">
                     {% if app.user %}
-                        <a  href="{{ path("logout") }}" class="btn btn-danger rounded">Déconnexion</a>
+                        <a href="{{ path("logout") }}" class="btn btn-danger rounded me-2">Déconnexion</a>
                     {% else %}
-                        <a  href="{{ path("login") }}" class="btn btn-success rounded">Connexion</a>
+                        <a href="{{ path("login") }}" class="btn btn-success rounded me-2">Connexion</a>
+                        <a href="{{ path("register") }}" class="btn btn-info rounded me-2">Inscription</a>
                     {% endif %}
                 </div>
             </div>
